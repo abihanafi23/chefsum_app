@@ -1,16 +1,37 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/gestures.dart';
-import 'dart:ui';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:myapp/page-scan/scanpage.dart';
-import 'package:myapp/utils.dart';
+import 'scanpage.dart';
+import 'utils.dart';
+import 'package:url_launcher/url_launcher.dart';
 
-class ThirdPage extends StatelessWidget {
+class ThirdPage extends StatefulWidget {
+  const ThirdPage({super.key});
+
+
+  @override
+  State<ThirdPage> createState() => _ThirdPageState();
+}
+
+class _ThirdPageState extends State<ThirdPage> {
+  Future<void>? _launched;
+
+
+  Future<void> _launchInBrowser(Uri url) async {
+    if (!await launchUrl(
+      url,
+      mode: LaunchMode.externalApplication,
+    )) {
+      throw Exception('Could not launch $url');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     double baseWidth = 360;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
+    final Uri toLaunch =
+        Uri.parse("https://chat.whatsapp.com/Bb67cDgiITKK59OL1G3BMT");
+
     return Scaffold(
       backgroundColor: Colors.cyan,
       body: Center(
@@ -30,7 +51,7 @@ class ThirdPage extends StatelessWidget {
                 fontSize: 36 * ffem,
                 fontWeight: FontWeight.w700,
                 height: 1.15 * ffem / fem,
-                color: Color(0xffffffff),
+                color: const Color(0xffffffff),
               ),
             ),
             Text(
@@ -40,28 +61,29 @@ class ThirdPage extends StatelessWidget {
                 fontSize: 36 * ffem,
                 fontWeight: FontWeight.w700,
                 height: 1.15 * ffem / fem,
-                color: Color(0xffffffff),
+                color: const Color(0xffffffff),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 25,
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.white,
                 foregroundColor: Colors.yellow,
-                shape: StadiumBorder()
+                shape: const StadiumBorder()
               ),
               onPressed: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return Scanner();
+                  return const Scanner();
                 }));
               },
               child: SizedBox(
                 width: 200,
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image(image: AssetImage("assets/page-2/images/google-images.png"), height: 50, width: 50,),
+                    const Image(image: AssetImage("assets/page-2/images/google-images.png"), height: 50, width: 50,),
                     Text(
                       'Open Camera',
                       style: SafeGoogleFont(
@@ -77,22 +99,25 @@ class ThirdPage extends StatelessWidget {
               ),
             ),
 
-            SizedBox(height: 30,),
+            const SizedBox(height: 30,),
 
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.white,
                 foregroundColor: Colors.yellow,
-                shape: StadiumBorder()
+                shape: const StadiumBorder()
               ),
               onPressed: () {
-                
+                setState(() {
+                  _launched = _launchInBrowser(toLaunch);
+                });
               },
               child: SizedBox(
                 width: 200,
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image(image: AssetImage("assets/page-2/images/whatsapp.png"), height: 50, width: 50,),
+                    const Image(image: AssetImage("assets/page-2/images/whatsapp.png"), height: 50, width: 50,),
                     Text(
                       'Join Group',
                       style: SafeGoogleFont(

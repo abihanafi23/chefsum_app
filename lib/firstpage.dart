@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/gestures.dart';
-import 'dart:ui';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:myapp/page-3/secondpage.dart';
-import 'package:myapp/utils.dart';
-
-import '../page-2/thirdpage.dart';
+import 'secondpage.dart';
+import 'utils.dart';
+import 'thirdpage.dart';
 
 class FirstPage extends StatelessWidget {
+  const FirstPage({super.key});
+
   @override
   Widget build(BuildContext context) {
-    final deviceHeight = MediaQuery.of(context).size.height;
     double baseWidth = 360;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
@@ -33,7 +30,7 @@ class FirstPage extends StatelessWidget {
                         fontSize: 26*ffem,
                         fontWeight: FontWeight.w700,
                         height: 1.15*ffem/fem,
-                        color: Color(0xffffffff),
+                        color: const Color(0xffffffff),
                       ),
                     ),
                   ),
@@ -45,11 +42,12 @@ class FirstPage extends StatelessWidget {
                 bottom: 50*fem,
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => SecondPage()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const SecondPage()));
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
-                    shape: StadiumBorder()
+                    foregroundColor: Colors.amber,
+                    shape: const StadiumBorder()
                   ),
                   child: Text(
                     'Next Step',
@@ -67,7 +65,7 @@ class FirstPage extends StatelessWidget {
                 // autogroupwb9zrt9 (PAevmofpHEM8VRg9QZWB9Z)
                 left: 20*fem,
                 top: 80*fem,
-                child: Container(
+                child: SizedBox(
                   width: 340*fem,
                   height: 364*fem,
                   child: Stack(
@@ -87,7 +85,7 @@ class FirstPage extends StatelessWidget {
                                 fontSize: 13*ffem,
                                 fontWeight: FontWeight.w500,
                                 height: 1.15*ffem/fem,
-                                color: Color(0xffffffff),
+                                color: const Color(0xffffffff),
                               ),
                             ),
                           ),
@@ -128,7 +126,7 @@ class FirstPage extends StatelessWidget {
                             fontSize: 13*ffem,
                             fontWeight: FontWeight.w500,
                             height: 1.15*ffem/fem,
-                            color: Color(0xffffffff),
+                            color: const Color(0xffffffff),
                           ),
                         ),
                         Text(
@@ -138,7 +136,7 @@ class FirstPage extends StatelessWidget {
                             fontSize: 13*ffem,
                             fontWeight: FontWeight.w500,
                             height: 1.15*ffem/fem,
-                            color: Color(0xffffffff),
+                            color: const Color(0xffffffff),
                           ),
                         ),
                       ],
@@ -150,12 +148,12 @@ class FirstPage extends StatelessWidget {
                 // skipbuttonJGH (9:16)
                 right: 10*fem,
                 top: 30*fem,
-                child: Container(
+                child: SizedBox(
                   width: 52*fem,
                   height: 24*fem,
                   child: GestureDetector(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => ThirdPage()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => const ThirdPage()));
                     },
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -170,11 +168,11 @@ class FirstPage extends StatelessWidget {
                               fontSize: 12*ffem,
                               fontWeight: FontWeight.w400,
                               height: 1.15*ffem/fem,
-                              color: Color(0xffffffff),
+                              color: const Color(0xffffffff),
                             ),
                           ),
                         ),
-                        Container(
+                        SizedBox(
                           // arrownextKSH (9:12)
                           width: 24*fem,
                           height: 24*fem,

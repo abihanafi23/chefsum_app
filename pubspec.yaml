@@ -1,5 +1,5 @@
-name: myapp
-description: A exported flutter project from FUNCTION12
+name: chemsfun
+description: Learning is simple
 
 
 # The following line prevents the package from being accidentally published to
@@ -40,6 +40,13 @@ dependencies:
   google_fonts: ^5.1.0
   qr_code_dart_scan: ^0.7.2
   url_launcher: ^6.1.12
+  flutter_launcher_icons: ^0.13.1
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/chemsfun-logo.png"
+
 
 dev_dependencies:
   flutter_test:
@@ -69,15 +76,10 @@ flutter:
   #   - images/a_dot_ham.jpeg
   assets:
     - assets/page-2/images/google-images.png
-    - assets/page-2/images/arrow-back.png
-    - assets/page-1/images/mask-group.png
     - assets/page-3/images/google-lens-1.png
     - assets/page-1/images/arrow-next.png
-    - assets/page-2/images/arrow-next-XfF.png
     - assets/page-3/images/whatsapp-logo-png-2260-1.png
-    - assets/page-3/images/arrow-next-6ss.png
     - assets/page-2/images/whatsapp.png
-    - assets/page-3/images/arrow-back-W41.png
     - assets/page-3/images/banksoal-1.png
     - assets/page-2/images/replicate-prediction-jnhhbwjbz5oxagxtan37lxe6si-1.png
     - assets/page-1/images/replicate-prediction-jnhhbwjbz5oxagxtan37lxe6si-1-ZrZ.png
