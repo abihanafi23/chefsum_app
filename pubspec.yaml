@@ -41,6 +41,8 @@ dependencies:
   qr_code_dart_scan: ^0.7.2
   url_launcher: ^6.1.12
   flutter_launcher_icons: ^0.13.1
+  flutter_verification_code: ^1.1.6
+  qr_flutter: ^4.1.0
 
 flutter_launcher_icons:
   android: true

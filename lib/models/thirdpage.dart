@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'scanpage.dart';
-import 'utils.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import '../features/scanpage.dart';
+import '../features/utils.dart';
+import '../features/verificationpage.dart';
 
 class ThirdPage extends StatefulWidget {
   const ThirdPage({super.key});
@@ -38,10 +40,17 @@ class _ThirdPageState extends State<ThirdPage> {
         child: Column(
           children: [
             Center(
-              child: Image.asset(
-                'assets/page-2/images/replicate-prediction-jnhhbwjbz5oxagxtan37lxe6si-1.png',
-                fit: BoxFit.cover,
-                height: 200,
+              child: GestureDetector(
+                onLongPress: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return const VerificationPage();
+                  }));
+                },
+                child: Image.asset(
+                  'assets/page-2/images/replicate-prediction-jnhhbwjbz5oxagxtan37lxe6si-1.png',
+                  fit: BoxFit.cover,
+                  height: 200,
+                ),
               ),
             ),
             Text(

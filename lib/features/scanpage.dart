@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:qr_code_dart_scan/qr_code_dart_scan.dart';
 import 'dart:convert';
@@ -23,7 +25,6 @@ class _ScannerState extends State<Scanner> {
       throw Exception('Could not launch $url');
     }
   }
-  
 
   @override
   Widget build(BuildContext context) {
@@ -45,6 +46,7 @@ class _ScannerState extends State<Scanner> {
                 String decoded = stringToBase64Url.decode(currentResult?.text as String);
                 final Uri toLaunch = Uri.parse(decoded);
                  _launched = _launchInBrowser(toLaunch);
+                 Navigator.pop(context);
               });
             },
             child: Column(
@@ -56,9 +58,8 @@ class _ScannerState extends State<Scanner> {
                     margin: const EdgeInsets.all(20),
                     padding: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(20)
-                    ),
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20)),
                     child: const Text("Scan QR Code"),
                   ),
                 ),
